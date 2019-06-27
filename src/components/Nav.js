@@ -1,7 +1,7 @@
 import piggy from '../porco.png'
 import React from 'react'
 
-const Nav = () => {
+const Nav = (props) => {
 	return (
 		<div className="navWrapper">
 			<span className="headerText">Hogwarts</span>
@@ -11,6 +11,11 @@ const Nav = () => {
 				</a>
 			</div>
 			<span className="normalText">A React App for County Fair Hog Fans</span>
+			<div className='buttons'>
+				<button onClick={props.filterGreased}> Filter Greased Piggies </button>
+				<button onClick={props.sortByName}> Sort by Name </button>
+				<button onClick={props.sortByWeight}> Sort by Weight</button>
+			</div>
 		</div>
 	)
 }

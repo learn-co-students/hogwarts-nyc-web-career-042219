@@ -33,13 +33,12 @@ export default class HogItem extends Component {
     formatName = () => {
         let original = this.props.name.toLowerCase();
         let formatted = original.split(' ').join('_')
-        console.log("STRING IS ", formatted);
         return formatted;
     }
 
     render() {
         return (
-            <div onClick={this.addDetails} className='ui link card eight wide column' style={(this.state.hidden) ? {display: 'none'} : {display: 'block'}}> 
+            <div onClick={this.addDetails} className='ui link card four wide column' style={(this.state.hidden) ? {display: 'none'} : {display: 'block'}}> 
                 <div className='image'>
                     <img src={process.env.PUBLIC_URL + `hog-imgs/${this.formatName()}.jpg`} alt={this.props.name}></img>
                 </div>
@@ -48,7 +47,7 @@ export default class HogItem extends Component {
                     <div className='description'>
                         {this.renderDetails()}
                     </div>
-                    <button onClick={this.hidePiggy}> Hide this fatass porker </button>
+                    <button onClick={this.hidePiggy}> Hide this porker </button>
                 </div>
             </div>
         )

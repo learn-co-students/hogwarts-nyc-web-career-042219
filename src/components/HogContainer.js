@@ -12,15 +12,7 @@ export default class HogContainer extends Component {
 
     sortHogsByName = () => {
         console.log('Were sorting')
-        hogs.sort((a, b) => {
-            let pigA = a.name.toUpperCase();
-            let pigB = b.name.toUpperCase();
-
-            if (pigA < pigB) return -1;
-            if (pigA > pigB) return 1;
-
-            return 0;
-        })
+        hogs.sort((a, b) => a.name.localeCompare(b.name))
     }
 
     sortHogsByWeight = () => {
@@ -39,22 +31,10 @@ export default class HogContainer extends Component {
         return array.map((hog, i) => {
             if (this.state.greased) {
                 if (hog.greased) {
-                    return <HogItem 
-                        key={i} name={hog.name} 
-                        speciality={hog.specialty} 
-                        greased={hog.greased} 
-                        weight={hog['weight as a ratio of hog to LG - 24.7 Cu. Ft. French Door Refrigerator with Thru-the-Door Ice and Water']} 
-                        medal={hog['highest medal achieved']}
-                    />
+                    return <HogItem {...hog} />
                 } else { return '' }
             } else {
-                return <HogItem 
-                    key={i} name={hog.name} 
-                    speciality={hog.specialty} 
-                    greased={hog.greased} 
-                    weight={hog['weight as a ratio of hog to LG - 24.7 Cu. Ft. French Door Refrigerator with Thru-the-Door Ice and Water']} 
-                    medal={hog['highest medal achieved']}
-                />
+                return <HogItem {...hog} />
             }
         })
     }
